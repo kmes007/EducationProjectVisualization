@@ -1,0 +1,26 @@
+.navbar{
+    background: coral;
+    border: 2;
+}
+
+#brandlogo{
+    color: rgb(68, 3, 16); 
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 2rem;
+    padding: 3px 3px;
+}
+
+.navbar img {
+    max-height: 64px;
+    width: auto;
+    margin-right: 9px;
+}
+
+body {
+    background-color: white;
+}
+
+.nav-link{
+    color: rgb(68, 3, 16);
+    font-weight: bold;
+}

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en-us">
+​
+<head>
+​
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+​
+  <title>Colorado Education Visualizations</title>
+​
+  <!-- Boostrap Stylesheet -->
+​
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+​
+  <!-- Our own CSS stylesheet -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.css" media="screen">
+  <link rel="stylesheet" href="/static/css/style.css" media="screen">
+​
+</head>
+​
+<body>
+  <!-- Begin Navbar -->
+  <nav class="navbar navbar-expand-lg">
+    <img alt="Home" src="./static/img/schoolhouse.jpg" width="100" height="100">
+    <a class="navbar-brand" href="#" id="brandlogo">
+      Colorado Education
+    </a>
+    <div class=" collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav ml-auto">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">
+            Visualizations
+          </a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="#">Scores</a>
+            <a class="dropdown-item" href="#">Turnover</a>
+            <a class="dropdown-item" href="#">Salaries</a>
+            <a class="dropdown-item" href="#">Budget</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <!-- End of navbar -->
+​
+  <div class="container-fluid">
+    <div class="row teacher-salaries">
+      <div class="col-12 col-md-4">
+        <h5>Average Teacher Salaries For Selected CO Districts</h5>
+        <p> Data indicates that districts  of Littleton and Cherry Creek have the highest average salaries. The turnover graph indicated
+          that Littleton and Cherry Creek also had the lowest turnover rate of the districts surveyed. This suggests that retention of 
+          employees is highly influenced by salary. 
+        </p>
+        <p>Districts with lower salaries, such as Centennial, Englewood and Colorado Springs have variable levels of turnover, suggesting
+           that other factors, such as working conditions may also influence turnover. 
+        </p>
+      </div>
+      <div class="col-12 col-md-8">
+        <canvas id="teacher-salaries-canvas"></canvas>
+      </div>
+    </div>
+​
+    <div class="row performance-scores">
+      <div class="col-12 col-md-4">
+        <h5>Average Test Scores For Selected CO Districts</h5>
+        <p>This chart shows the overall mean score on the Colorado Measures of Academic Success (CMAS)
+          Data indicates there is not much variablility in scores across districts. This is slightly 
+          surprising since there are distinct trends for turnover, salaries across districts and budget 
+          for each district. </p>
+
+        <p>Centennial's data does not show because there are several missing values. In other words,
+          many of their scores for each grade were not reported. In fact, the only scores reported
+          were for English Language Arts and Math for the 6th grade. Their reported scores average  
+          out to 714, making Centennial one of the lower performing districts surveyed. </p>
+
+          <p>Out of the districts surveyed, the top five highest performing districts are Littleton, 
+          Academy 20, Bouldver Valley, Cherry Creek and Adams 12. While the lowest performing districts
+          are Westminster, Englewood, Adams-Arapahoe, Adams 14 and Colorado Springs. </p>
+        </p>
+      </div>
+      <div class="col-12 col-md-8">
+        <canvas id="performance-score-canvas"></canvas>
+      </div>
+    </div>
+​
+    <div class="row teacher-turnover">
+      <div class="col-12 col-md-4">
+        <h5>Average Teacher Turnover For Selected CO Districts</h5>
+        <p>Data indicates that teacher turnover varies from district to district. The districts
+          with higher turnover rates, reflecting a higher number of employees that leave after 1 year,
+          generally have lower salaries for teachers and lower overall scores on the CMAS. </p>
+
+        <p>The districts with higher turnover rates are Centennial, Adams County 14, Adams-Arapahoe,
+          Denver County and Englewood. Districts with lower retention rates indicate districts that 
+          have a higher number of employees that choose to stay within the disrtict. The districts 
+          with the lowest turnover rates are Littleton, Cherry Creek, Boulder Valley, Academy 20  
+          and Jefferson County. </p>
+        </p>
+      </div>
+      <div class="col-12 col-md-8">
+        <canvas id="teacher-turnover-canvas"></canvas>
+      </div>
+    </div>
+    <div class="row district-budget">
+      <div class="col-12 col-md-4">
+        <h5>Average Budget per Pupil For Selected CO Districts</h5>
+        <p>This chart shows the average spending per pupil for each school district. Most districts surveyed have about 
+          $8,000 per pupil spending. However some districts, like Centennial, have budgets as high as $13,000 but has one 
+          of the lowest teacher salaries, one of the highest average spending per pupil as well as the highest turnover rate.
+          This suggests that higher budgets do not necessarily translate to higher salaries for teachers nor does it translate 
+          to higher test scores.</p>
+
+          <p>Additionally, Academy 20 and Littleton have one of the lowest reported spending per pupil. This may mean that 
+          money spent towards salaries is a higher factor that influences a districts' overall performance than spending 
+          per pupil for resources, curriculums or additional programs. If true, this would make retention of quality teachers
+          even more important than overall spending. However, there are districts like Adams-Arapahoe, with comprable salaries 
+          for teachers still continue to perform in the lower range of districts surveyed and continue to experience high 
+          turnover when compared to the other districts. This may indicate that other factors such as high turnover and 
+          working conditions may still exert a strong influence on a districts performance.</p> 
+        </p> 
+        <p>
+           
+        </p>
+      </div>
+      <div class="col-12 col-md-8">
+        <canvas id="district-budget-canvas"></canvas>
+      </div>
+    </div>
+​
+    <!-- jQuery CDN -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <!-- Bootstrap CDN -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"></script>
+​
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
+    <script src="/static/js/logic.js"></script>
+</body>
+​
